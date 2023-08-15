@@ -29,4 +29,26 @@ router.get('/', async(req, res) => {
     }
   })
 
+   
+  router.delete('/:id', async(req, res) => {
+    console.log(req.params.id,'test')
+    const todoId = req.params.id;
+    try{
+        await Todo.deleteOne({id: todoId})
+        res.send("Deleted successfully");
+    }
+    catch{
+        res.send('delete Error')
+    }
+  })
+  // Update a Tutorial by the id in the request
+exports.update = (req, res) => {
+  
+};
+
+// Delete a Tutorial with the specified id in the request
+exports.delete = (req, res) => {
+  
+};
+
   module.exports = router
