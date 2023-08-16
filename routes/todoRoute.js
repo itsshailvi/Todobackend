@@ -30,6 +30,19 @@ router.get('/', async(req, res) => {
   })
 
    
+  router.put('/:id', async(req, res) => {
+    console.log(req.params.id,'test')
+    const todoId = req.params.id;
+    try{
+        await Todo.updateOne({id: todoId} ,
+        { $set: { "item" : 'justin' } })
+        res.send("updated successfully");
+    }
+    catch{
+        res.send('update Error')
+    }
+  })
+
   router.delete('/:id', async(req, res) => {
     console.log(req.params.id,'test')
     const todoId = req.params.id;
